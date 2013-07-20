@@ -1,5 +1,6 @@
 BASH UTILS
 ===========
+
 Bash colors management and log system
 
 Bashutils provide you two functionnalities:

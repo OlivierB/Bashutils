@@ -14,20 +14,18 @@ Print and log message like lsb init-functions
 import sys
 import colors
 
-# --------------------------------
-# Bash logger
 MESSAGE = ""
 
 MESSAGE_LOG = {
-    -1: ["FFF", ("????",)],
+    -1: ["none", ("????",)],
     0: ["OK", (" OK ", "green",)],
     1: ["FAIL", ("FAIL", "red",)],
-    2: ["WARNING", ("/!!\\", "yellow",)],
-    3: ["ERROR", ("ERROR", "red",)],
+    2: ["WARNING", ("WARN", "yellow",)],
+    3: ["ERROR", ("ERR-", "red",)],
 }
 
 for elem in MESSAGE_LOG.keys():
-    locals()["LOG_" + MESSAGE_LOG[elem][0].replace(" ", "_")] = elem
+    locals()["LOG_" + MESSAGE_LOG[elem][0].replace(" ", "_").upper()] = elem
 
 
 def log_success_msg(message):
@@ -87,13 +85,28 @@ def log_end_message(log):
     sys.stdout.write("\r[" + res + "] " + MESSAGE + "\n")
 
 
+def log_msg_pre(message):
+    """
+    Prefix the previous begin log message
+    """
+    global MESSAGE
+    MESSAGE = message + MESSAGE
+    
+
+def log_msg_post(message):
+    """
+    Suffix the previous begin log message
+    """
+    global MESSAGE
+    MESSAGE = MESSAGE + message
+
+
 def log_end_msg_pre(message, log):
     """
     Prefix the previous begin log message
     and end it with the log status
     """
-    global MESSAGE
-    MESSAGE = message + MESSAGE
+    log_msg_pre(message)
     log_end_message(log)
 
 
@@ -102,6 +115,10 @@ def log_end_msg_post(message, log):
     Suffix the previous begin log message
     and end it with the log status
     """
-    global MESSAGE
-    MESSAGE = MESSAGE + message
+    log_msg_post(message)
     log_end_message(log)
+
+
+if __name__ == "__main__":
+    log_begin_message("ersgfsdgfdxhb f hgfdh fg")
+    log_end_msg_post("POST", LOG_NONE)

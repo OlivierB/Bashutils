@@ -16,8 +16,6 @@ none, bold, underscore, blink, reverse, concealed
 """
 
 
-# --------------------------------
-# Bash color management
 COLOR_ON = True
 COLOR_RESET = "\033[0m"
 COLOR_CODE_TEXT = {
