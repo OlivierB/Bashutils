@@ -24,9 +24,12 @@ Color function :
 * effect : font effect
 
 **Text and background colors list** : none, black ,red ,green ,yellow ,blue ,magenta ,cyan ,white
+
 *default color is 'none' (terminal default color)*
 
-**Text effects** : none, bold, underscore, blink, reverse, concealed 
+
+**Text effects** : none, bold, underscore, blink, reverse, concealed
+
 *default effect is 'none'*
 
 bash logmsg
