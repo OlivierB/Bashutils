@@ -17,15 +17,15 @@ import colors
 MESSAGE = ""
 
 MESSAGE_LOG = {
-    -1: ["none", ("????",)],
+    -1: ["NONE", ("????",)],
     0: ["OK", (" OK ", "green",)],
     1: ["FAIL", ("FAIL", "red",)],
-    2: ["WARNING", ("WARN", "yellow",)],
     3: ["ERROR", ("ERR-", "red",)],
 }
 
+LOG = dict()
 for elem in MESSAGE_LOG.keys():
-    locals()["LOG_" + MESSAGE_LOG[elem][0].replace(" ", "_").upper()] = elem
+    LOG[MESSAGE_LOG[elem][0]] = elem
 
 
 def log_success_msg(message):
@@ -44,20 +44,17 @@ def log_failure_msg(message):
     log_end_message(1)
 
 
-def log_warning_msg(message):
-    """
-    print warning message
-    """
-    log_begin_message(message)
-    log_end_message(2)
-
-
 def log_error_msg(message):
     """
     print error message
     """
     log_begin_message(message)
     log_end_message(3)
+
+
+def log_msg_type(message, log):
+    log_begin_message(message)
+    log_end_message(log)
 
 
 def log_begin_message(message):
@@ -91,7 +88,7 @@ def log_msg_pre(message):
     """
     global MESSAGE
     MESSAGE = message + MESSAGE
-    
+
 
 def log_msg_post(message):
     """
@@ -119,6 +116,21 @@ def log_end_msg_post(message, log):
     log_end_message(log)
 
 
+def add_log_type(name, display, color, bcolor):
+    v_name = name.replace(" ", "_").upper()
+    val = 0
+    lkey = MESSAGE_LOG.keys()
+    while val in lkey:
+        val += 1
+    global MESSAGE_LOG
+    MESSAGE_LOG[val] = [v_name, (display, color, bcolor,)]
+    global LOG
+    LOG[v_name] = val
+
+
 if __name__ == "__main__":
     log_begin_message("ersgfsdgfdxhb f hgfdh fg")
-    log_end_msg_post("POST", LOG_NONE)
+    log_end_msg_post("POST", LOG["FAIL"])
+    log_msg_type("message", LOG["ERROR"])
+    add_log_type("BERK", "BERK", "blue", "yellow")
+    log_msg_type("message", LOG["BERK"])

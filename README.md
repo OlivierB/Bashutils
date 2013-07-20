@@ -36,4 +36,38 @@ Color function :
 bash logmsg
 ===========
 
-log system
+Start a new log message :
+```
+log_begin_message("My message")
+```
+
+End a log message :
+```
+log_end_message(logmsg.LOG["OK"])
+```
+
+Log type : OK (0), FAIL (1), WARNING (2), ERROR (3)
+
+Predefined message (begin and end message):
+```
+log_success_msg("My message")
+log_failure_msg("My message")
+log_error_msg("My message")
+```
+
+Predefined for all types :
+```
+log_msg_type("My message", logmsg.LOG["OK"])
+```
+
+Add pre or post information on log message :
+```
+log_msg_pre("SUPP")
+log_msg_post("SUPP")
+```
+
+Add pre or post information on log message and end it :
+```
+log_end_msg_pre("SUPP", logmsg.LOG["OK"])
+log_end_msg_post("SUPP", logmsg.LOG["OK"])
+```
