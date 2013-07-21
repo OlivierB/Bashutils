@@ -115,5 +115,8 @@ You have an all in one function like ``log_success_msg`` with :
     log_msg_type("My message", logmsg.LOG.MYNEWLOG)
 
 Example :
+
+.. code-block:: console
+
     add_log_type("MYNEWLOG", "NEWL", "red", "yellow")
-    log_msg_type("Message with new LOG", logmsg.LOG.MYNEWLOG)
+    log_msg_type("Message with new LOG", LOG.MYNEWLOG)
