@@ -55,7 +55,7 @@ def log_error_msg(message):
     print error message
     """
     log_begin_message(message)
-    log_end_message(3)
+    log_end_message(2)
 
 
 def log_msg_type(message, log):

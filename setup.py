@@ -14,7 +14,7 @@ setup(
     author='Olivier BLIN',
     author_email='olivier.oblin@gmail.com',
     description="Bash colors management and log system",
-    long_description=open('README.md').read(),
+    long_description=open('README.rst').read(),
     keywords="bash color log",
     url='https://github.com/OlivierB/Bashutils.git',
     license='GPLv3',
