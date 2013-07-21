@@ -117,14 +117,14 @@ def log_end_msg_post(message, log):
 
 
 def add_log_type(name, display, color, bcolor):
+    global MESSAGE_LOG, LOG
     v_name = name.replace(" ", "_").upper()
     val = 0
     lkey = MESSAGE_LOG.keys()
     while val in lkey:
         val += 1
-    global MESSAGE_LOG
+    
     MESSAGE_LOG[val] = [v_name, (display, color, bcolor,)]
-    global LOG
     LOG[v_name] = val
 
 
