@@ -1,11 +1,9 @@
-#! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
-Bash color
-Bash log
+Bash log message
 
-Print and log message like lsb init-functions
+Print messages like lsb init-functions
 
 @author: Olivier BLIN
 """
@@ -38,27 +36,27 @@ def log_success_msg(message):
     """
     print success message
     """
-    log_begin_message(message)
-    log_end_message(0)
+    log_msg_type(0)
 
 
 def log_failure_msg(message):
     """
     print failure message
     """
-    log_begin_message(message)
-    log_end_message(1)
+    log_msg_type(1)
 
 
 def log_error_msg(message):
     """
     print error message
     """
-    log_begin_message(message)
-    log_end_message(2)
+    log_msg_type(2)
 
 
 def log_msg_type(message, log):
+    """
+    print message from asked type (log)
+    """
     log_begin_message(message)
     log_end_message(log)
 

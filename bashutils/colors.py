@@ -1,4 +1,3 @@
-#! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -79,7 +78,10 @@ def color_text(text, color="none", bcolor="none", effect="none"):
         v_color = COLOR_CODE_TEXT[color]
         v_bcolor = COLOR_CODE_BG[bcolor]
 
-        return "\033[%d;%d;%dm" % (v_effect, v_color, v_bcolor) + text + COLOR_RESET
+        if effect == "none" and color == "none" and bcolor == "none":
+            return text
+        else:
+            return "\033[%d;%d;%dm" % (v_effect, v_color, v_bcolor) + text + COLOR_RESET
 
 
 def color_parser(text):

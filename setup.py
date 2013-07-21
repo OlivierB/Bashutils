@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 __version__ = "0.0.2"
 
 setup(
     name="Bashutils",
     version=__version__,
-    packages=find_packages(),
+    packages=["bashutils", "bashutils.test"],
 
     author='Olivier BLIN',
     author_email='olivier.oblin@gmail.com',
