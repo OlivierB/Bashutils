@@ -26,7 +26,10 @@ bash colors
 
 
 Color function :
-``color_text(text, color="none", bcolor="none", effect="none")``
+
+.. code-block:: console
+
+    color_text(text, color="none", bcolor="none", effect="none")
 
 * color : text color
 * bcolor : background color
