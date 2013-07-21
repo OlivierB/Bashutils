@@ -51,6 +51,9 @@ bash logmsg
 Functions
 ---------
 
+Basic functions
+~~~~~~~~~~~~~~~
+
 Start a new log message :
 
 .. code-block:: console
@@ -73,27 +76,26 @@ Predefined message (begin and end message):
     log_failure_msg("My message")
     log_error_msg("My message")``
 
-Predefined for all types :
 
-.. code-block:: console
+Other functions
+~~~~~~~~~~~~~~~
 
-    log_msg_type("My message", logmsg.LOG.OK)
-
-Add pre or post information on log message :
+If you want to add some information before or after the begin message, you can use these functions:
 
 .. code-block:: console
 
     log_msg_pre("SUPP")
     log_msg_post("SUPP")
-
-Add pre or post information on log message and end it :
-
-.. code-block:: console
-
     log_end_msg_pre("SUPP", logmsg.LOG.OK)
     log_end_msg_post("SUPP", logmsg.LOG.OK)
 
-You can add your own log type :
+*The last two functions add a PRE or POST information and end massage with LOG status*
+
+
+Add a LOG Type
+~~~~~~~~~~~~~~~
+
+It is possible to add a new LOG Type :
 
 .. code-block:: console
 
@@ -103,3 +105,15 @@ You can add your own log type :
 * display : display message in [-]
 * color : text color (see bashutils.colors)
 * bcolor : background color (see bashutils.colors)
+
+You can use this new LOG with ``LOG.MYNEWLOG`` (name in upper case)
+
+You have an all in one function like ``log_success_msg`` with :
+
+.. code-block:: console
+
+    log_msg_type("My message", logmsg.LOG.MYNEWLOG)
+
+Example :
+    add_log_type("MYNEWLOG", "NEWL", "red", "yellow")
+    log_msg_type("Message with new LOG", logmsg.LOG.MYNEWLOG)
