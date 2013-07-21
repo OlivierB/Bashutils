@@ -20,12 +20,18 @@ MESSAGE_LOG = {
     -1: ["NONE", ("????",)],
     0: ["OK", (" OK ", "green",)],
     1: ["FAIL", ("FAIL", "red",)],
-    3: ["ERROR", ("ERR-", "red",)],
+    2: ["ERROR", ("ERR-", "red",)],
 }
 
-LOG = dict()
+
+class LOG():
+
+    """All logs Type"""
+    pass
+
+
 for elem in MESSAGE_LOG.keys():
-    LOG[MESSAGE_LOG[elem][0]] = elem
+    setattr(LOG, MESSAGE_LOG[elem][0], elem)
 
 
 def log_success_msg(message):
@@ -117,20 +123,18 @@ def log_end_msg_post(message, log):
 
 
 def add_log_type(name, display, color, bcolor):
-    global MESSAGE_LOG, LOG
+    """
+    name : call name (A-Z and '_')
+    display : display message in [-]
+    color : text color (see bashutils.colors)
+    bcolor : background color (see bashutils.colors)
+    """
+    global MESSAGE_LOG
     v_name = name.replace(" ", "_").upper()
     val = 0
     lkey = MESSAGE_LOG.keys()
     while val in lkey:
         val += 1
-    
+
     MESSAGE_LOG[val] = [v_name, (display, color, bcolor,)]
-    LOG[v_name] = val
-
-
-if __name__ == "__main__":
-    log_begin_message("ersgfsdgfdxhb f hgfdh fg")
-    log_end_msg_post("POST", LOG["FAIL"])
-    log_msg_type("message", LOG["ERROR"])
-    add_log_type("BERK", "BERK", "blue", "yellow")
-    log_msg_type("message", LOG["BERK"])
+    setattr(LOG, v_name, val)
