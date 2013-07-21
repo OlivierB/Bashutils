@@ -36,21 +36,21 @@ def log_success_msg(message):
     """
     print success message
     """
-    log_msg_type(0)
+    log_msg_type(message, 0)
 
 
 def log_failure_msg(message):
     """
     print failure message
     """
-    log_msg_type(1)
+    log_msg_type(message, 1)
 
 
 def log_error_msg(message):
     """
     print error message
     """
-    log_msg_type(2)
+    log_msg_type(message, 2)
 
 
 def log_msg_type(message, log):
