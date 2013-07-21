@@ -1,7 +1,7 @@
 BASH UTILS
 ===========
 
-Bash colors management and log system
+Bash colors management and log system for python users
 
 Bashutils provide you two functionnalities:
 
