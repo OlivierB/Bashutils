@@ -119,4 +119,4 @@ Example :
 .. code-block:: console
 
     add_log_type("MYNEWLOG", "NEWL", "red", "yellow")
-    log_msg_type("Message with new LOG", logmsg.LOG.MYNEWLOG)
+    log_msg_type("Message with new LOG", LOG.MYNEWLOG)
