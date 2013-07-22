@@ -9,18 +9,11 @@ Bashutils provide you two functionnalities:
 * Create bash colored text
 * Log message system (like lsb init-functions log message)
 
-**Imports** :
-
-.. code-block:: console
-
-    from bashutils import colors
-    from bashutils import logmsg
-
 
 bash colors
 ===========
 
-**Imports** :
+**Import** :
 
     from bashutils import colors
 
@@ -47,7 +40,7 @@ Color function :
 bash logmsg
 ===========
 
-**Imports** :
+**Import** :
 
     from bashutils import logmsg
 
