@@ -73,8 +73,10 @@ Predefined message (begin and end message):
 .. code-block:: console
 
     log_success_msg("My message")
+    log_info_msg("My message")
+    log_warning_msg("My message")
     log_failure_msg("My message")
-    log_error_msg("My message")``
+    log_error_msg("My message")
 
 
 Other functions

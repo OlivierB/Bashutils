@@ -6,10 +6,14 @@ from bashutils import logmsg
 def test():
     print "COMPLETE PREDEFINED LOG"
     logmsg.log_success_msg("This is a success message")
+    logmsg.log_info_msg("This is an info message")
+    logmsg.log_warning_msg("This is an warning message")
     logmsg.log_failure_msg("This is a failure message")
     logmsg.log_error_msg("This is an error message")
 
     logmsg.log_msg_type("ALL Types handler", logmsg.LOG.OK)
+    logmsg.log_msg_type("ALL Types handler", logmsg.LOG.INFO)
+    logmsg.log_msg_type("ALL Types handler", logmsg.LOG.WARNING)
     logmsg.log_msg_type("ALL Types handler", logmsg.LOG.FAIL)
     logmsg.log_msg_type("ALL Types handler", logmsg.LOG.ERROR)
 

@@ -18,7 +18,9 @@ MESSAGE_LOG = {
     -1: ["NONE", ("????",)],
     0: ["OK", (" OK ", "green",)],
     1: ["FAIL", ("FAIL", "red",)],
-    2: ["ERROR", ("ERR-", "red",)],
+    2: ["ERROR", ("ERRR", "red",)],
+    3: ["INFO", ("INFO", "cyan",)],
+    4: ["WARNING", ("WARN", "yellow",)],
 }
 
 
@@ -51,6 +53,20 @@ def log_error_msg(message):
     print error message
     """
     log_msg_type(message, 2)
+
+
+def log_info_msg(message):
+    """
+    print info message
+    """
+    log_msg_type(message, 3)
+
+
+def log_warning_msg(message):
+    """
+    print warning message
+    """
+    log_msg_type(message, 4)
 
 
 def log_msg_type(message, log):
