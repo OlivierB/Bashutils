@@ -15,6 +15,9 @@ none, bold, underscore, blink, reverse, concealed
 """
 
 
+import sys
+
+
 COLOR_ON = True
 COLOR_RESET = "\033[0m"
 COLOR_CODE_TEXT = {
@@ -64,7 +67,7 @@ def color_text(text, color="none", bcolor="none", effect="none"):
     """
     Return a formated text with bash color
     """
-    if not COLOR_ON:
+    if not sys.stdout.isatty() or not COLOR_ON:
         return text
     else:
         if not effect in COLOR_EFFET.keys():
