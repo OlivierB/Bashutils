@@ -11,6 +11,8 @@ none, black, red, green, yellow, blue, magenta, cyan, white
 Text effects:
 none, bold, underscore, blink, reverse, concealed
 
+see : http://www.csc.uvic.ca/~sae/seng265/fall04/tips/s265s047-tips/bash-using-colors.html
+
 @author: Olivier BLIN
 """
 
@@ -67,7 +69,12 @@ def color_text(text, color="none", bcolor="none", effect="none"):
     """
     Return a formated text with bash color
     """
-    if not sys.stdout.isatty() or not COLOR_ON:
+    istty = False
+    try:
+        istty = sys.stdout.isatty()
+    except:
+        pass
+    if not istty or not COLOR_ON:
         return text
     else:
         if not effect in COLOR_EFFET.keys():
