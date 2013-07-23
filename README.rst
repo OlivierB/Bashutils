@@ -62,7 +62,7 @@ End a log message :
 
     log_end_message(logmsg.LOG.OK)
 
-**Existing log type** : LOG.OK (0), LOG.FAIL (1), LOG.ERROR (2)
+**Existing log type** : LOG.OK (0), LOG.FAIL (1), LOG.ERROR (2), LOG.INFO (3), LOG.WARNING (4)
 
 Predefined message (begin and end message):
 
